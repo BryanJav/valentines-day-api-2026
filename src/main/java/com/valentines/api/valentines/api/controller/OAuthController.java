@@ -14,10 +14,12 @@ import com.valentines.api.valentines.api.repository.RefreshTokenRepository;
 import com.valentines.api.valentines.api.service.GmailService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.List;
@@ -88,7 +90,14 @@ public class OAuthController {
     }
 
     @PostMapping("/drafts/send")
-    public Message sendDraft(@RequestParam String draftId) throws IOException {
-        return gmailService.sendDraft(draftId);
+    public Message sendDraft() throws IOException {
+        return gmailService.sendDraft();
     }
+
+    @PostMapping("/drafts/set-id")
+    public ResponseEntity<?> setDraftId(@RequestParam String draftId) throws IOException{
+        return gmailService.setDraftId(draftId);
+    }
+
+
 }
