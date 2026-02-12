@@ -34,8 +34,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${OWNER}/valentines-api:latest .
+          docker build -t ghcr.io/${OWNER}/valentines-day-api-2026:latest .
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${OWNER}/valentines-api:latest
+          docker push ghcr.io/${OWNER}/valentines-day-api-2026:latest
