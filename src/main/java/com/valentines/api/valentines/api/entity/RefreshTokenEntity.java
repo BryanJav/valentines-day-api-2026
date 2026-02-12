@@ -14,10 +14,10 @@ import java.time.Instant;
 @Builder
 public class RefreshTokenEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String userEmail;
 
     @Column(nullable = false, length = 2048)
